@@ -4,17 +4,22 @@
 <meta content="600" http-equiv="refresh"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <style>
+/* Removes default layout padding and prevents scrolling */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; 
+}
 .blink_img {
   animation: blinker 2s linear infinite;
 }
-/* Updated image styles to fit the screen */
+/* Force the image to scale nicely into the full viewport */
 img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 30%;       /* Spans the full width of the screen */
-  max-width: 30%;   /* Prevents the image from overflowing */
-  height: auto;      /* Maintains the original aspect ratio */
+  width: 100vw;      /* 100% of viewport width */
+  height: 100vh;     /* 100% of viewport height */
+  object-fit: cover; /* Crops the sides to fill the screen beautifully without warping */
 }
 @keyframes blinker {
   100% { opacity: 0; }
